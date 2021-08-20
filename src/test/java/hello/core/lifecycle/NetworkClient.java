@@ -1,5 +1,8 @@
 package hello.core.lifecycle;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class NetworkClient{
     private String url;
     //접속해야할 사이트
@@ -28,11 +31,13 @@ public class NetworkClient{
         System.out.println("close "+ url);
     }
 
+    @PostConstruct
     public void close(){
         System.out.println("NetworkClient.close");
         disconnect();
     }
 
+    @PreDestroy
     public void init() {
         System.out.println("NetworkClient.init");
         connect();
