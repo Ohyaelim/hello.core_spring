@@ -17,20 +17,20 @@ import static org.assertj.core.api.Assertions.*;
 
 public class AllBeanTest {
 
-    @Test
-    void findAllBean(){
-        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class, DiscountService.class);
-
-        DiscountService discountService = ac.getBean(DiscountService.class);
-        Member member = new Member(1L, "userA", Grade.VIP);
-        int discountPrice = discountService.discount(member,10000, "fixDiscountPolicy");
-
-        assertThat(discountService).isInstanceOf(DiscountService.class);
-        assertThat(discountPrice).isEqualTo(1000);
-
-        int rateDiscountPrice = discountService.discount(member,10000, "fixDiscountPolicy");
-        assertThat(discountPrice).isEqualTo(2000);
-    }
+//    @Test
+//    void findAllBean(){
+//        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class, DiscountService.class);
+//
+//        DiscountService discountService = ac.getBean(DiscountService.class);
+//        Member member = new Member(1L, "userA", Grade.VIP);
+//        int discountPrice = discountService.discount(member,10000, "fixDiscountPolicy");
+//
+//        assertThat(discountService).isInstanceOf(DiscountService.class);
+//        assertThat(discountPrice).isEqualTo(1000);
+//
+//        int rateDiscountPrice = discountService.discount(member,10000, "fixDiscountPolicy");
+//        assertThat(discountPrice).isEqualTo(2000);
+//    }
 
     static class DiscountService{
         private final Map<String, DiscountPolicy> policyMap;
