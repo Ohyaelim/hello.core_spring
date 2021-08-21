@@ -31,12 +31,14 @@ public class NetworkClient{
         System.out.println("close "+ url);
     }
 
+    //생성자 후에
     @PostConstruct
     public void close(){
         System.out.println("NetworkClient.close");
         disconnect();
     }
 
+    //삭제 전에
     @PreDestroy
     public void init() {
         System.out.println("NetworkClient.init");
